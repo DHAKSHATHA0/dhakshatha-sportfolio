@@ -27,4 +27,4 @@ coverage/
 *.tgz
 
 # Static assets copied from user OneDrive (if any)
-src/assets/certs/
+# Static assets copied from user OneDrive (if any)
