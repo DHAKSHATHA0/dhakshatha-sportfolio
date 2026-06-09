@@ -30,3 +30,18 @@ const html = `<!doctype html>
 
 fs.writeFileSync(path.join(clientDir, 'index.html'), html, 'utf8');
 console.log('Generated dist/client/index.html');
+
+// Flatten dist/client into dist/ for easier production deployment (e.g. Vercel)
+const distDir = path.join(__dirname, '..', 'dist');
+fs.writeFileSync(path.join(distDir, 'index.html'), html, 'utf8');
+
+const distAssetsDir = path.join(distDir, 'assets');
+if (!fs.existsSync(distAssetsDir)) {
+  fs.mkdirSync(distAssetsDir, { recursive: true });
+}
+
+fs.readdirSync(assetsDir).forEach((file) => {
+  fs.copyFileSync(path.join(assetsDir, file), path.join(distAssetsDir, file));
+});
+
+console.log('Flattened dist/client into dist/');
