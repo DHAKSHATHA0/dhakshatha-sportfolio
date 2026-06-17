@@ -123,7 +123,7 @@ const education = [
   {
     phase: "Phase_2024_2028",
     school:"Sri Eshwar College of Engineering",
-    score: "CGPA: 8.45",
+    score: "CGPA: 8.5",
     program: "B.E. CSE (Artificial Intelligence & Machine Learning)",
     location: "COIMBATORE, INDIA",
   },
@@ -195,7 +195,7 @@ function Portfolio() {
             </div>
 
             <div className="mt-10 grid grid-cols-2 gap-4 max-w-md">
-              <Stat label="ACADEMIC" value="8.45" unit="CGPA" />
+              <Stat label="ACADEMIC" value="8.5" unit="CGPA" />
               <Stat label="PROJECTS" value="10+" unit="Built" />
             </div>
 
