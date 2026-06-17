@@ -457,7 +457,7 @@ function Portfolio() {
                 <div className="text-xs text-muted-foreground">{e.phase}</div>
                 <h3 className="mt-2 text-xl font-bold">{e.school}</h3>
                 <div className="mt-1 text-sm text-cyan">{e.program}</div>
-                <div className="mt-2 text-sm text-muted-foreground">{e.score} • {e.location}</div>
+                <div className="mt-2 text-sm text-muted-foreground">{e.score}  {e.location}</div>
               </div>
             ))}
           </div>
