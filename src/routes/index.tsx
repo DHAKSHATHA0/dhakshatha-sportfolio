@@ -159,7 +159,7 @@ function Portfolio() {
   const [certPaused, setCertPaused] = useState(false);
 
   const scrollCerts = (dir: "left" | "right") => {
-    const track = certTrackRef.current;
+    const track = certTrackRef.current;    git remote -v
     if (!track) return;
     setCertPaused(true);
     track.scrollBy({ left: dir === "right" ? 300 : -300, behavior: "smooth" });
