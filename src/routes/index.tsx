@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import {
   ArrowUpRight, Download, Github, Linkedin, Mail, MapPin, Phone,
   Rocket, Send, ChevronLeft, ChevronRight, X,
@@ -11,6 +11,12 @@ import cert2 from "../assets/certs/cert2.jpeg";
 import cert3 from "../assets/certs/cert3.jpeg";
 import cert4 from "../assets/certs/cert4.jpeg";
 import cert5 from "../assets/certs/cert5.jpeg";
+import cert6 from "../assets/certs/cert6.jpeg";
+import heroAi from "../assets/hero-ai.jpg";
+import sihImg from "../assets/achievs/sih.jpeg";
+import pecImg from "../assets/achievs/pec.jpeg";
+import karpagamImg from "../assets/achievs/karpagam.jpeg";
+import kprImg from "../assets/achievs/kpr.jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -27,94 +33,88 @@ export const Route = createFileRoute("/")({
 /* ---------- Data ---------- */
 const skillGroups = [
   { idx: "  01", title: "Programming", items: ["Python", "C/C++", "Java"] },
-  { idx: "  02", title: "AI & ML", items: ["Scikit-learn", "Pandas", "NumPy"] },
+  { idx: "  02", title: "AI & ML", items: ["Scikit-learn", "Pandas", "NumPy","Data Visualization"] },
   { idx: "  03", title: "Web Tech", items: ["React", "Node.js", "Flask", "FastAPI", "MongoDB", "Tailwind","Postgre SQL"] },
   { idx: "  04", title: "Tools", items: ["Git & GitHub", "Docker", "Jupyter", "VS Code", "Power BI"] },
 ];
 
 const codingProfiles = [
-  { platform: "LeetCode", problems: "160+", highlight: "Rating: 1359", desc: "Active in LeetCode contests with strong competitive programming foundation.", bgImage: "" },
-  { platform: "Skillrack", problems: "700+", highlight: "Problem Solving", desc: "Extensive problem-solving experience across multiple domains.", bgImage: "" },
-  { platform: "CodeChef", problems: "100+", highlight: "Programming language", desc: "Strengthened programming language.", bgImage: "" },
-  { platform: "HackerRank", problems: "200+", highlight: "DSA", desc: "Demonstrated strong foundation in Data structure and algorithms.", bgImage: "" }
+  { platform: "LeetCode", problems: "160+", highlight: "Rating: 1359", badge: "1", certification: "", desc: "Active in LeetCode contests with strong competitive programming foundation.", bgImage: "" },
+  { platform: "Skillrack", problems: "700+", highlight: "Problem Solving", badge: "", certification: "5", desc: "Extensive problem-solving experience across multiple domains.", bgImage: "" },
+  { platform: "CodeChef", problems: "100+", highlight: "Programming language", badge: "", certification: "", desc: "Strengthened programming language.", bgImage: "" },
+  { platform: "HackerRank", problems: "", highlight: "DSA", badge: "1", certification: "1", desc: "Demonstrated strong foundation in Data structure and algorithms.", bgImage: "" },
 ];
 
 const achievements = [
-  { title: "Smart India Hackathon",place:" Sri Eshwar College of Engineering", desc: "Participated in India's largest national-level innovation hackathon focused on AI-driven solutions.", bgImage: "" },
-  { title: "MSME Innovation Challenge", achievement: "selected in the internal round", place:" Sri Eshwar College of Engineering", desc: "selected in the first internal college screening round held in our college.", bgImage: "" },
-  { title: "PEC Hackathon ", achievement: "5th Place",place:" Panimalar Engineering College", desc: "Secured 5th place among 50+ teams in a competitive hackathon.", bgImage: "" },
-  { title: "Paper Presentation Competition", achievement: "1st Place",place:" Karpagam College of Engineering", desc: "Won 1st place in a paper presentation competition.", bgImage: "" },
-  { title: "Project Expo ", achievement: "1st Place",place:" KPR Institute of Engineering and Technology", desc: "secured 1st place in Project Expo in inter College fest.", bgImage: "" },
+  { title: "Smart India Hackathon",place:" Sri Eshwar College of Engineering", desc: "Shortlisted in Internal round of India's largest national-level innovation hackathon focused on AI-driven solutions.", bgImage: sihImg },
+  //{ title: "MSME Innovation Challenge", achievement: "selected in the internal round", place:" Sri Eshwar College of Engineering", desc: "selected in the first internal college screening round held in our college.", bgImage: "" },
+  { title: "PEC Hackathon ", achievement: "5th Place",place:" Panimalar Engineering College", desc: "Secured 5th place among 50+ teams in a competitive hackathon.", bgImage: pecImg },
+  { title: "Paper Presentation Competition", achievement: "1st Place",place:" Karpagam College of Engineering", desc: "Won 1st place in a paper presentation competition.", bgImage: karpagamImg },
+  { title: "Project Expo ", achievement: "1st Place",place:" KPR Institute of Engineering and Technology", desc: "secured 1st place in Project Expo in inter College fest.", bgImage: kprImg },
 ];
 
 const certifications = [
-  { issuer: "Great Learning", title: "C Language for Beginners", year: "2024", bgImage: "", certImage: cert1 },
-  { issuer: "NPTEL", title: "Mastering Java Programming", year: "2025", bgImage: "", certImage: cert2 },
-  { issuer: "Saylor Academy", title: "Certified in Artificial Intelligence", year: "2025", bgImage: "", certImage: cert3 },
+  { issuer: "Great Learning", title: "C Language for Beginners", year: "2024", bgImage: "", certImage: cert2 },
+  { issuer: "NPTEL", title: "Mastering Java Programming", year: "2025", bgImage: "", certImage: cert3 },
+  { issuer: "Saylor Academy", title: "Certified in Artificial Intelligence", year: "2025", bgImage: "", certImage: cert1 },
   { issuer: "NPTEL", title: "Design Thinking – A Primer", year: "2026", bgImage: "", certImage: cert4 },
   { issuer: "IBM SkillsBuild", title: "Introduction to Generative AI", year: "2025", bgImage: "", certImage: cert5 },
-  { issuer: "Zoho Young Creators Program", title: "Zoho Creator Student Training", year: "2025", bgImage: "", certImage: "" },
+  { issuer: "Zoho Young Creators Program", title: "Zoho Creator Student Training", year: "2025", bgImage: "", certImage: cert6 },
 ];
 
 const projects = [
   {
     n: "01",
-    title: "CareerMate AI",
-    desc: "An AI-driven career guidance platform that recommends learning paths, internships and skill gaps using LLM-powered resume parsing.",
-    fullDesc: "CareerMate AI is an intelligent career guidance system that leverages LLM technology to analyze resumes, identify skill gaps, and recommend personalized learning paths and internship opportunities.",
-    tags: ["Python", "FastAPI", "LangChain", "React", "PostgreSQL"],
-    images: ["", "", "", "", ""], // Up to 5 images - first one used as background
-    stats: { users: 150, impact: "42K", status: "Live" },
+    title: "CareerMate – AI-Powered Career Guidance Chatbot",
+    desc: "AI-powered career guidance chatbot providing course recommendations, aptitude preparation resources, interview guidance, and career support through an interactive conversational interface.",
+    tags: ["Python", "Flask", "HTML", "CSS", "JavaScript","MYSQL","NLTK","Scikit-learn","TF-IDF","Cosine Similarity","Regex","gemini API"],
+    bgImage: heroAi,
+    stats: { status: "Built" },
     links: { demo: "#", github: "#" },
   },
   {
     n: "02",
-    title: "Little Bloom",
-    desc: "A child-development tracking app using ML to flag early growth anomalies, paired with personalized activity suggestions for parents.",
-    fullDesc: "Little Bloom uses machine learning algorithms to monitor child development metrics and flag potential growth anomalies early, providing parents with personalized activity recommendations.",
-    tags: ["TensorFlow", "Flask", "React Native", "Firebase"],
-    images: ["", "", "", "", ""],
-    stats: { users: 200, impact: "50K", status: "Live" },
+    title: "Plagiarism Detection and prevention System",
+    desc: "NLP-based application for detecting textual similarities and identifying plagiarism in documents, with similarity score generation and detailed detection reports.",
+    tags: ["Python", "NLP", "Text Similarity","SHAP Model","CNN–LSTM","XGBoost","Chrome Extension"],
+    bgImage: heroAi,
+    stats: { status: "Built" },
     links: { demo: "#", github: "#" },
   },
   {
     n: "03",
-    title: "Plagiarism Detection Engine",
-    desc: "NLP-based semantic plagiarism detector using sentence-transformers and vector similarity to flag paraphrased content.",
-    fullDesc: "Advanced plagiarism detection using transformer models and semantic similarity matching to identify paraphrased and disguised content with high accuracy.",
-    tags: ["Python", "Transformers", "FAISS", "Streamlit"],
-    images: ["", "", "", "", ""],
-    stats: { users: 300, impact: "1M+", status: "Live" },
+    title: "Resume Analyzer",
+    desc: "Intelligent resume evaluation tool that extracts skills, analyzes keywords, and provides ATS optimization suggestions to improve resume compatibility.",
+    tags: ["Python", "Numpy","Pandas","Pytorch","scikit-learn","Flask","HTML","CSS","JavaScript"],
+    bgImage: heroAi,
+    stats: { status: "Built" },
     links: { demo: "#", github: "#" },
   },
   {
     n: "04",
-    title: "Crop Disease Classifier",
-    desc: "A CNN model identifying 38 crop diseases from leaf images, deployed as a lightweight mobile-friendly PWA for farmers.",
-    fullDesc: "Deep learning model trained to identify and classify 38 different crop diseases from leaf images, deployed as a progressive web app for easy farmer access.",
-    tags: ["PyTorch", "CNN", "React PWA", "Docker"],
-    images: ["", "", "", "", ""],
-    stats: { users: 500, impact: "12K", status: "Live" },
+    title: "Little Bloom – Baby Products E-Commerce Website",
+    desc: "Responsive e-commerce website for baby products with product catalog, filtering, navigation, and modern UI focused on user experience.",
+    tags: ["React.js","PostgreSQL","java Spring Boot","Tailwind CSS","Machine Learning","Linear Regression"],
+    bgImage: heroAi,
+    stats: { status: "Built" },
     links: { demo: "#", github: "#" },
   },
   {
     n: "05",
-    title: "GenAI Notes Summarizer",
-    desc: "A retrieval-augmented summarizer that turns long lecture PDFs into structured study notes with bullet highlights and quizzes.",
-    fullDesc: "Intelligent summarization tool using retrieval-augmented generation to transform educational content into concise, structured study notes with auto-generated quizzes.",
-    tags: ["LangChain", "OpenAI", "Chroma", "Next.js"],
-    images: ["", "", "", "", ""],
-    stats: { users: 250, impact: "5K", status: "Live" },
+    title: "Kidney Disorder Monitoring System",
+    desc: "Machine learning-based healthcare system for kidney disease prediction and patient health monitoring using medical data analysis and visualization.",
+    tags: ["Python", "Machine Learning", "Hardware Integeration","React.js","MongoDB","Tailwind CSS","node.js","Express.js"],
+    bgImage: heroAi,
+    stats: { status: "Built" },
     links: { demo: "#", github: "#" },
   },
   {
     n: "06",
-    title: "Portfolio Intelligence",
-    desc: "This very portfolio — a futuristic, recruiter-focused experience with smooth motion, monospace aesthetic and modular sections.",
-    fullDesc: "A modern portfolio website built with cutting-edge web technologies, featuring smooth animations, responsive design, and an impressive showcase of projects and skills.",
-    tags: ["React", "TailwindCSS", "Framer Motion", "TanStack Start"],
-    images: ["", "", "", "", ""],
-    stats: { users: 100, impact: "8K", status: "Live" },
+    title: "Language Learning Web Application",
+    desc: "Interactive web platform designed to enhance vocabulary, grammar, and language proficiency through structured learning modules and practice exercises.",
+    tags: ["React.js","Node.js","Express.js","MongoDB","AWS EC2","JWT Authentication","Tailwind CSS"],
+    bgImage: heroAi,
+    stats: { status: "Built" },
     links: { demo: "#", github: "#" },
   },
 ];
@@ -122,7 +122,7 @@ const projects = [
 const education = [
   {
     phase: "Phase_2024_2028",
-    school: "Sri Eshwar College of Engineering",
+    school:"Sri Eshwar College of Engineering",
     score: "CGPA: 8.45",
     program: "B.E. CSE (Artificial Intelligence & Machine Learning)",
     location: "COIMBATORE, INDIA",
@@ -153,18 +153,16 @@ function SectionTitle({ kicker, title }: { kicker: string; title: string }) {
 
 /* ---------- Page ---------- */
 function Portfolio() {
-  const [certCarouselIndex, setCertCarouselIndex] = useState(0);
-  const [selectedProject, setSelectedProject] = useState<(typeof projects)[0] | null>(null);
-  const [galleryProject, setGalleryProject] = useState<(typeof projects)[0] | null>(null);
-  const [galleryImageIndex, setGalleryImageIndex] = useState(0);
   const [fullscreenCert, setFullscreenCert] = useState<(typeof certifications)[0] | null>(null);
+  const [fullscreenAchiev, setFullscreenAchiev] = useState<(typeof achievements)[0] | null>(null);
+  const certTrackRef = useRef<HTMLDivElement>(null);
+  const [certPaused, setCertPaused] = useState(false);
 
-  const nextCert = () => {
-    setCertCarouselIndex((prev) => (prev + 1) % certifications.length);
-  };
-
-  const prevCert = () => {
-    setCertCarouselIndex((prev) => (prev - 1 + certifications.length) % certifications.length);
+  const scrollCerts = (dir: "left" | "right") => {
+    const track = certTrackRef.current;
+    if (!track) return;
+    setCertPaused(true);
+    track.scrollBy({ left: dir === "right" ? 300 : -300, behavior: "smooth" });
   };
 
   return (
@@ -205,7 +203,7 @@ function Portfolio() {
               <a href="#projects" className="group inline-flex items-center gap-3 bg-cyan text-primary-foreground px-6 py-3 rounded-sm font-bold tracking-[0.15em] text-sm hover:glow-cyan transition-all">
                 VIEW MY WORK <Rocket size={16} className="group-hover:translate-x-1 transition-transform" />
               </a>
-              <a href="/resume.pdf" className="inline-flex items-center gap-3 border border-cyan text-cyan px-6 py-3 rounded-sm font-bold tracking-[0.15em] text-sm hover:bg-cyan/10 transition-all">
+              <a href="/resume.html" download="Dhakshatha_Resume.html" className="inline-flex items-center gap-3 border border-cyan text-cyan px-6 py-3 rounded-sm font-bold tracking-[0.15em] text-sm hover:bg-cyan/10 transition-all">
                 <Download size={16} /> MY Resume
               </a>
             </div>
@@ -276,7 +274,7 @@ function Portfolio() {
             {codingProfiles.map((cp) => (
               <div
                 key={cp.platform}
-                className="tech-card bracket relative p-6 hover:tech-card-hover overflow-hidden group"
+                className="tech-card bracket relative p-8 hover:tech-card-hover overflow-hidden group"
                 style={{
                   backgroundImage: cp.bgImage ? `url(${cp.bgImage})` : "none",
                   backgroundSize: "cover",
@@ -289,9 +287,23 @@ function Portfolio() {
                 <div className="relative z-10">
                   <h3 className="text-2xl font-bold text-cyan">{cp.platform}</h3>
                   <div className="mt-3">
-                    <div className="text-3xl font-extrabold">{cp.problems}</div>
+                    {cp.problems && <div className="text-3xl font-extrabold">{cp.problems}</div>}
                     <div className="text-sm text-cyan tracking-[0.15em] mt-1">{cp.highlight}</div>
                   </div>
+                  {(cp.badge || cp.certification) && (
+                    <div className="mt-3 flex gap-3">
+                      {cp.badge && (
+                        <span className="inline-flex items-center gap-1 bg-cyan/10 border border-cyan/40 text-cyan text-xs px-2 py-1 rounded-sm tracking-wide">
+                          🏅 Badge: {cp.badge}
+                        </span>
+                      )}
+                      {cp.certification && (
+                        <span className="inline-flex items-center gap-1 bg-cyan/10 border border-cyan/40 text-cyan text-xs px-2 py-1 rounded-sm tracking-wide">
+                          📜 Certification: {cp.certification}
+                        </span>
+                      )}
+                    </div>
+                  )}
                   <p className="mt-4 text-sm text-muted-foreground">{cp.desc}</p>
                 </div>
               </div>
@@ -308,12 +320,14 @@ function Portfolio() {
             {achievements.map((a) => (
               <div
                 key={a.title}
-                className="tech-card bracket relative p-6 hover:tech-card-hover overflow-hidden group"
+                className="tech-card bracket relative p-8 hover:tech-card-hover overflow-hidden group cursor-pointer"
                 style={{
                   backgroundImage: a.bgImage ? `url(${a.bgImage})` : "none",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
+                  minHeight: "320px",
                 }}
+                onClick={() => a.bgImage && setFullscreenAchiev(a)}
               >
                 {a.bgImage && (
                   <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors" />
@@ -337,22 +351,53 @@ function Portfolio() {
               Certifications <span className="italic text-cyan text-glow">&amp; Courses</span>
             </h3>
 
-            {/* Certifications row — horizontal scroll, clean layout, right-to-left animation */}
-            <div className="mt-8">
-              <div className="overflow-hidden">
-                <style>{`\n                  .cert-track { display:flex; gap:20px; align-items:center; }\n                  @keyframes r2l { from { transform: translateX(0); } to { transform: translateX(-50%);} }\n                `}</style>
-                <div
-                  className="cert-track"
-                  style={{ animation: `r2l 25s linear infinite` }}
-                >
-                  {certifications.concat(certifications).map((c, i) => (
-                    <div key={`${c.title}-${i}`} className="w-72 flex-shrink-0 cursor-pointer" onClick={() => c.certImage && setFullscreenCert(c)}>
+            {/* Certifications row — horizontal scroll with arrows */}
+            <div className="mt-8 relative">
+              {/* Arrow buttons */}
+              <button
+                onClick={() => scrollCerts("left")}
+                className="absolute -left-5 top-1/2 -translate-y-1/2 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-cyan text-black hover:bg-cyan/80 transition shadow-lg"
+              >
+                <ChevronLeft size={18} />
+              </button>
+              <button
+                onClick={() => scrollCerts("right")}
+                className="absolute -right-5 top-1/2 -translate-y-1/2 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-cyan text-black hover:bg-cyan/80 transition shadow-lg"
+              >
+                <ChevronRight size={18} />
+              </button>
+
+              <div className="overflow-x-auto scrollbar-hide" ref={certTrackRef}>
+                <style>{`
+                  .cert-track { display:flex; gap:20px; align-items:center; width:max-content; }
+                  .scrollbar-hide::-webkit-scrollbar { display:none; }
+                  .scrollbar-hide { -ms-overflow-style:none; scrollbar-width:none; }
+                  @keyframes r2l { from { transform: translateX(0); } to { transform: translateX(-50%);} }
+                  .cert-track-anim { animation: r2l 25s linear infinite; }
+                  .cert-track-anim.paused { animation-play-state: paused; }
+                `}</style>
+                <div className={`cert-track${certPaused ? "" : " cert-track-anim"}`}>
+                  {(certPaused ? certifications : certifications.concat(certifications)).map((c, i) => (
+                    <div
+                      key={`${c.title}-${i}`}
+                      className="w-72 flex-shrink-0 cursor-pointer relative rounded-lg overflow-hidden shadow-lg"
+                      onClick={() => c.certImage && setFullscreenCert(c)}
+                    >
                       {c.certImage ? (
-                        <img src={c.certImage} alt={c.title} className="w-full h-44 object-cover rounded-lg shadow-lg" />
+                        <>
+                          <img src={c.certImage} alt={c.title} className="w-full h-44 object-cover" />
+                          <div className="absolute inset-0 bg-black/40" />
+                          <div className="absolute bottom-0 left-0 right-0 p-3">
+                            <div className="text-[9px] text-cyan font-bold tracking-widest">{c.issuer.toUpperCase()}</div>
+                            <div className="text-xs text-white font-semibold mt-0.5 leading-tight">{c.title}</div>
+                            <div className="text-[9px] text-white/60 mt-1 tracking-widest">{c.year}</div>
+                          </div>
+                        </>
                       ) : (
-                        <div className="tech-card p-4 rounded-lg"> 
-                          <div className="text-[10px] text-cyan font-bold">{c.issuer.toUpperCase()}</div>
-                          <div className="mt-2 font-semibold">{c.title}</div>
+                        <div className="tech-card p-4 rounded-lg h-44 flex flex-col justify-end border border-cyan/30 bg-background/80">
+                          <div className="text-[10px] text-cyan font-bold tracking-widest">{c.issuer.toUpperCase()}</div>
+                          <div className="mt-2 font-semibold text-sm text-white leading-tight">{c.title}</div>
+                          <div className="text-[9px] text-white/60 mt-1 tracking-widest">{c.year}</div>
                         </div>
                       )}
                     </div>
@@ -364,23 +409,37 @@ function Portfolio() {
         </div>
       </section>
 
-      {/* Projects (kept minimal) */}
+      {/* Projects */}
       <section id="projects" className="py-24">
         <div className="mx-auto max-w-7xl px-6">
           <SectionTitle kicker="" title="Projects" />
-          <div className="grid md:grid-cols-2 gap-6">
-            {projects.slice(0, 4).map((p) => (
-              <div key={p.title} className="tech-card p-6 bracket hover:scale-105 transition-transform">
-                <div className="flex items-center justify-between">
-                  <div className="text-xs text-muted-foreground">{p.n}</div>
-                  <div className="text-sm text-cyan font-semibold">{p.stats.status}</div>
-                </div>
-                <h3 className="mt-3 text-xl font-bold">{p.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
-                <div className="mt-4 flex gap-2 flex-wrap">
-                  {p.tags.map((t) => (
-                    <span key={t} className="text-[12px] bg-background/30 px-2 py-1 rounded-sm">{t}</span>
-                  ))}
+          <div className="flex flex-col gap-6">
+            {projects.map((p) => (
+              <div
+                key={p.title}
+                className="tech-card bracket relative overflow-hidden group"
+                style={{
+                  backgroundImage: p.bgImage ? `url(${p.bgImage})` : "none",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  minHeight: "280px",
+                }}
+              >
+                {p.bgImage && (
+                  <div className="absolute inset-0 bg-black/60 group-hover:bg-black/50 transition-colors" />
+                )}
+                <div className="relative z-10 p-8 flex flex-col justify-end h-full" style={{ minHeight: "280px" }}>
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="text-xs text-cyan/70 tracking-widest">{p.n}</div>
+                    <div className="text-sm text-cyan font-semibold tracking-[0.15em]">{p.stats.status}</div>
+                  </div>
+                  <h3 className="text-2xl font-extrabold">{p.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground max-w-2xl">{p.desc}</p>
+                  <div className="mt-4 flex gap-2 flex-wrap">
+                    {p.tags.map((t) => (
+                      <span key={t} className="text-[11px] bg-cyan/10 border border-cyan/30 text-cyan px-2 py-1 rounded-sm tracking-wide">{t}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
@@ -439,10 +498,36 @@ function Portfolio() {
 
       {/* Fullscreen cert modal */}
       {fullscreenCert && (
-        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-6">
-          <div className="relative max-w-4xl w-full">
-            <button className="absolute right-2 top-2 p-2 rounded-full bg-white/10" onClick={() => setFullscreenCert(null)}><X /></button>
+        <div
+          className="fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-6"
+          onClick={() => setFullscreenCert(null)}
+        >
+          <div className="relative max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="absolute -top-4 -right-4 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-cyan text-black font-bold hover:bg-cyan/80 transition shadow-lg"
+              onClick={() => setFullscreenCert(null)}
+            >
+              <X size={18} />
+            </button>
             <img src={fullscreenCert.certImage || ''} alt={fullscreenCert.title} className="w-full h-auto rounded-lg" />
+          </div>
+        </div>
+      )}
+
+      {/* Fullscreen achievement modal */}
+      {fullscreenAchiev && (
+        <div
+          className="fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-6"
+          onClick={() => setFullscreenAchiev(null)}
+        >
+          <div className="relative max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="absolute -top-4 -right-4 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-cyan text-black font-bold hover:bg-cyan/80 transition shadow-lg"
+              onClick={() => setFullscreenAchiev(null)}
+            >
+              <X size={18} />
+            </button>
+            <img src={fullscreenAchiev.bgImage || ''} alt={fullscreenAchiev.title} className="w-full h-auto rounded-lg" />
           </div>
         </div>
       )}
@@ -491,3 +576,7 @@ function Social({ href, icon }: { href: string; icon: React.ReactNode }) {
 }
 
 export default Route;
+
+
+
+
