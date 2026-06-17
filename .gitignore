@@ -26,5 +26,8 @@ Thumbs.db
 coverage/
 *.tgz
 
+# Vercel
+.vercel
+
 # Static assets copied from user OneDrive (if any)
 # Static assets copied from user OneDrive (if any)
