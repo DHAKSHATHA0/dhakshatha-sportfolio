@@ -27,7 +27,8 @@ coverage/
 *.tgz
 
 # Vercel
-.vercel
+.vercel/project.json
+.vercel/README.txt
 
 # Static assets copied from user OneDrive (if any)
 # Static assets copied from user OneDrive (if any)
