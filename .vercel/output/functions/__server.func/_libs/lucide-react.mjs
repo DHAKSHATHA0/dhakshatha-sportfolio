@@ -75,6 +75,11 @@ const createLucideIcon = (iconName, iconNode) => {
   Component.displayName = toPascalCase(iconName);
   return Component;
 };
+const __iconNode$b = [
+  ["path", { d: "M7 7h10v10", key: "1tivn9" }],
+  ["path", { d: "M7 17 17 7", key: "1vkiza" }]
+];
+const ArrowUpRight = createLucideIcon("arrow-up-right", __iconNode$b);
 const __iconNode$a = [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]];
 const ChevronLeft = createLucideIcon("chevron-left", __iconNode$a);
 const __iconNode$9 = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
@@ -165,6 +170,7 @@ const __iconNode = [
 ];
 const X = createLucideIcon("x", __iconNode);
 export {
+  ArrowUpRight as A,
   ChevronLeft as C,
   Download as D,
   Github as G,

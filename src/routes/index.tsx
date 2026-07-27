@@ -48,7 +48,6 @@ const codingProfiles = [
   { platform: "CodeChef", url: "https://www.codechef.com/users/dhakshu_08", problems: "100+", highlight: "Programming language", badge: "", certification: "", desc: "Strengthened programming language.", bgImage: "https://cdn.codechef.com/images/cc-logo.svg" },
   { platform: "HackerRank", url: "https://www.hackerrank.com/profile/dhatchuu08", problems: "", highlight: "DSA", badge: "1", certification: "1", desc: "Demonstrated strong foundation in Data structure and algorithms.", bgImage: "https://hrcdn.net/fcore/assets/brand/logo-new-white-green-a5cb16e0ae.svg" },
 ];
-];
 
 const achievements = [
   { title: "Smart India Hackathon",place:" Sri Eshwar College of Engineering", desc: "Shortlisted in Internal round of India's largest national-level innovation hackathon focused on AI-driven solutions.", bgImage: sihImg },
