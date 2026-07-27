@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { useState, useRef } from "react";
 import {
   ArrowUpRight, Download, Github, Linkedin, Mail, MapPin, Phone,
@@ -17,6 +17,9 @@ import sihImg from "../assets/achievs/sih.jpeg";
 import pecImg from "../assets/achievs/pec.jpeg";
 import karpagamImg from "../assets/achievs/karpagam.jpeg";
 import kprImg from "../assets/achievs/kpr.jpeg";
+import kprpaperImg from "../assets/achievs/kprpaper.jpeg";
+import cert7 from "../assets/certs/cert7.png";
+import cert8 from "../assets/certs/cert8.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,17 +35,19 @@ export const Route = createFileRoute("/")({
 
 /* ---------- Data ---------- */
 const skillGroups = [
-  { idx: "  01", title: "Programming", items: ["Python", "C/C++", "Java"] },
-  { idx: "  02", title: "AI & ML", items: ["Scikit-learn", "Pandas", "NumPy","Data Visualization"] },
+  { idx: "  01", title: "Programming", items: ["Python", "C/C++", "Java","HTML","CSS"] },
+  { idx: "  02", title: "AI & ML FrameWork", items: ["Scikit-learn", "Pandas", "NumPy","Data Visualization","Matplotlip"] },
   { idx: "  03", title: "Web Tech", items: ["React", "Node.js", "Flask", "FastAPI", "MongoDB", "Tailwind","Postgre SQL"] },
-  { idx: "  04", title: "Tools", items: ["Git & GitHub", "Docker", "Jupyter", "VS Code", "Power BI"] },
+  { idx: "  04", title: "Tools", items: ["Git & GitHub", "Docker", "Jupyter", "VS Code", "Power BI","AWS","Vercel","Render","Railway"] },
+  { idx: "  05", title: "Core Concepts", items:["DSA","OOPS","Machine Learning","Data Analysis &EDA","Networking"]},
 ];
 
 const codingProfiles = [
-  { platform: "LeetCode", problems: "160+", highlight: "Rating: 1359", badge: "1", certification: "", desc: "Active in LeetCode contests with strong competitive programming foundation.", bgImage: "" },
-  { platform: "Skillrack", problems: "700+", highlight: "Problem Solving", badge: "", certification: "5", desc: "Extensive problem-solving experience across multiple domains.", bgImage: "" },
-  { platform: "CodeChef", problems: "100+", highlight: "Programming language", badge: "", certification: "", desc: "Strengthened programming language.", bgImage: "" },
-  { platform: "HackerRank", problems: "", highlight: "DSA", badge: "1", certification: "1", desc: "Demonstrated strong foundation in Data structure and algorithms.", bgImage: "" },
+  { platform: "LeetCode", url: "https://leetcode.com/u/DhakshathaSelvaraj/", problems: "170+", highlight: "Rating: 1359", badge: "1", certification: "", desc: "Active in LeetCode contests with strong competitive programming foundation.", bgImage: "https://leetcode.com/static/images/LeetCode_logo_rvs.png" },
+  { platform: "Skillrack", url: "https://www.skillrack.com/faces/candidate/trackshome.xhtml", problems: "700+", highlight: "Problem Solving", badge: "", certification: "5", desc: "Extensive problem-solving experience across multiple domains.", bgImage: "https://www.skillrack.com/images/brand/logo.png" },
+  { platform: "CodeChef", url: "https://www.codechef.com/users/dhakshu_08", problems: "100+", highlight: "Programming language", badge: "", certification: "", desc: "Strengthened programming language.", bgImage: "https://cdn.codechef.com/images/cc-logo.svg" },
+  { platform: "HackerRank", url: "https://www.hackerrank.com/profile/dhatchuu08", problems: "", highlight: "DSA", badge: "1", certification: "1", desc: "Demonstrated strong foundation in Data structure and algorithms.", bgImage: "https://hrcdn.net/fcore/assets/brand/logo-new-white-green-a5cb16e0ae.svg" },
+];
 ];
 
 const achievements = [
@@ -51,6 +56,7 @@ const achievements = [
   { title: "PEC Hackathon ", achievement: "5th Place",place:" Panimalar Engineering College", desc: "Secured 5th place among 50+ teams in a competitive hackathon.", bgImage: pecImg },
   { title: "Paper Presentation Competition", achievement: "1st Place",place:" Karpagam College of Engineering", desc: "Won 1st place in a paper presentation competition.", bgImage: karpagamImg },
   { title: "Project Expo ", achievement: "1st Place",place:" KPR Institute of Engineering and Technology", desc: "secured 1st place in Project Expo in inter College fest.", bgImage: kprImg },
+  { title: "Paper Presentation", achievement: "1st Place", place: " KPR Institute of Engineering and Technology", desc: "Won 1st place in a paper presentation competition.", bgImage: kprpaperImg },
 ];
 
 const certifications = [
@@ -60,6 +66,8 @@ const certifications = [
   { issuer: "NPTEL", title: "Design Thinking – A Primer", year: "2026", bgImage: "", certImage: cert4 },
   { issuer: "IBM SkillsBuild", title: "Introduction to Generative AI", year: "2025", bgImage: "", certImage: cert5 },
   { issuer: "Zoho Young Creators Program", title: "Zoho Creator Student Training", year: "2025", bgImage: "", certImage: cert6 },
+  { issuer :"Unstop", title:"Github Workflow Mastery", year:"2026", bgImage:"", certImage:cert7},
+  { issuer :"Google", title:"Google Analytics Certification", year:"2026", bgImge:"",certImage:cert8},
 ];
 
 const projects = [
@@ -70,7 +78,7 @@ const projects = [
     tags: ["Python", "Flask", "HTML", "CSS", "JavaScript","MYSQL","NLTK","Scikit-learn","TF-IDF","Cosine Similarity","Regex","gemini API"],
     bgImage: heroAi,
     stats: { status: "Built" },
-    links: { demo: "#", github: "#" },
+    links: { demo: "#", github: "https://github.com/DHAKSHATHA0/careermate.git" },
   },
   {
     n: "02",
@@ -79,7 +87,7 @@ const projects = [
     tags: ["Python", "NLP", "Text Similarity","SHAP Model","CNN–LSTM","XGBoost","Chrome Extension"],
     bgImage: heroAi,
     stats: { status: "Built" },
-    links: { demo: "#", github: "#" },
+    links: { demo: "#", github: "https://github.com/Harinid27/PhishingDetection.git" },
   },
   {
     n: "03",
@@ -88,7 +96,7 @@ const projects = [
     tags: ["Python", "Numpy","Pandas","Pytorch","scikit-learn","Flask","HTML","CSS","JavaScript"],
     bgImage: heroAi,
     stats: { status: "Built" },
-    links: { demo: "#", github: "#" },
+    links: { demo: "#", github: "https://github.com/DHAKSHATHA0/resumeanalyser.git" },
   },
   {
     n: "04",
@@ -97,7 +105,7 @@ const projects = [
     tags: ["React.js","PostgreSQL","java Spring Boot","Tailwind CSS","Machine Learning","Linear Regression"],
     bgImage: heroAi,
     stats: { status: "Built" },
-    links: { demo: "#", github: "#" },
+    links: { demo: "#", github: "https://github.com/DHAKSHATHA0/littlebloom.git" },
   },
   {
     n: "05",
@@ -106,7 +114,7 @@ const projects = [
     tags: ["Python", "Machine Learning", "Hardware Integeration","React.js","MongoDB","Tailwind CSS","node.js","Express.js"],
     bgImage: heroAi,
     stats: { status: "Built" },
-    links: { demo: "#", github: "#" },
+    links: { demo: "#", github: "https://github.com/DHAKSHATHA0/Renelsense.git" },
   },
   {
     n: "06",
@@ -115,7 +123,7 @@ const projects = [
     tags: ["React.js","Node.js","Express.js","MongoDB","AWS EC2","JWT Authentication","Tailwind CSS"],
     bgImage: heroAi,
     stats: { status: "Built" },
-    links: { demo: "#", github: "#" },
+    links: { demo: "#", github: "https://github.com/DHAKSHATHA0/language_Learning.git" },
   },
 ];
 
@@ -123,7 +131,7 @@ const education = [
   {
     phase: "Phase_2024_2028",
     school:"Sri Eshwar College of Engineering",
-    score: "CGPA: 8.5",
+    score: "CGPA: 8.6",
     program: "B.E. CSE (Artificial Intelligence & Machine Learning)",
     location: "COIMBATORE, INDIA",
   },
@@ -233,7 +241,7 @@ function Portfolio() {
             <div className="absolute -right-2 top-10 bracket relative bg-background/70 backdrop-blur px-4 py-3 text-[10px] tracking-[0.18em] text-cyan border border-cyan/40 rounded-sm">
               SUBJECT: DHAKSHATHA<br />
               DOMAIN: AI & ML<br />
-              CURRENT_SEM : 6th
+              CURRENT_SEM : 5th
             </div>
             {/* corner ticks */}
             <CornerTicks />
@@ -272,36 +280,21 @@ function Portfolio() {
           <SectionTitle kicker="" title="Coding Profiles" />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {codingProfiles.map((cp) => (
-              <div
-                key={cp.platform}
-                className="tech-card bracket relative p-8 hover:tech-card-hover overflow-hidden group"
-                style={{
-                  backgroundImage: cp.bgImage ? `url(${cp.bgImage})` : "none",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
-                {cp.bgImage && (
-                  <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors" />
-                )}
-                <div className="relative z-10">
-                  <h3 className="text-2xl font-bold text-cyan">{cp.platform}</h3>
+              <div key={cp.platform} className="bracket relative overflow-hidden group" style={{ minHeight: "220px", border: "1px solid rgba(6,182,212,0.18)", borderRadius: "4px", transition: "all .3s ease" }}>
+                {cp.bgImage && <img src={cp.bgImage} alt="" className="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity" />}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/80" />
+                <div className="relative z-10 p-8">
+                  <a href={cp.url} target="_blank" rel="noopener noreferrer" className="text-2xl font-bold text-cyan hover:text-white transition-colors flex items-center gap-2">
+                    {cp.platform} <ArrowUpRight size={18} />
+                  </a>
                   <div className="mt-3">
                     {cp.problems && <div className="text-3xl font-extrabold">{cp.problems}</div>}
                     <div className="text-sm text-cyan tracking-[0.15em] mt-1">{cp.highlight}</div>
                   </div>
                   {(cp.badge || cp.certification) && (
                     <div className="mt-3 flex gap-3">
-                      {cp.badge && (
-                        <span className="inline-flex items-center gap-1 bg-cyan/10 border border-cyan/40 text-cyan text-xs px-2 py-1 rounded-sm tracking-wide">
-                          🏅 Badge: {cp.badge}
-                        </span>
-                      )}
-                      {cp.certification && (
-                        <span className="inline-flex items-center gap-1 bg-cyan/10 border border-cyan/40 text-cyan text-xs px-2 py-1 rounded-sm tracking-wide">
-                          📜 Certification: {cp.certification}
-                        </span>
-                      )}
+                      {cp.badge && <span className="inline-flex items-center gap-1 bg-cyan/10 border border-cyan/40 text-cyan text-xs px-2 py-1 rounded-sm tracking-wide">Badge: {cp.badge}</span>}
+                      {cp.certification && <span className="inline-flex items-center gap-1 bg-cyan/10 border border-cyan/40 text-cyan text-xs px-2 py-1 rounded-sm tracking-wide">Cert: {cp.certification}</span>}
                     </div>
                   )}
                   <p className="mt-4 text-sm text-muted-foreground">{cp.desc}</p>
@@ -320,19 +313,13 @@ function Portfolio() {
             {achievements.map((a) => (
               <div
                 key={a.title}
-                className="tech-card bracket relative p-8 hover:tech-card-hover overflow-hidden group cursor-pointer"
-                style={{
-                  backgroundImage: a.bgImage ? `url(${a.bgImage})` : "none",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  minHeight: "320px",
-                }}
+                className="bracket relative overflow-hidden group cursor-pointer"
+                style={{ minHeight: "320px", border: "1px solid rgba(6,182,212,0.18)", borderRadius: "4px", transition: "all .3s ease" }}
                 onClick={() => a.bgImage && setFullscreenAchiev(a)}
               >
-                {a.bgImage && (
-                  <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors" />
-                )}
-                <div className="relative z-10">
+                {a.bgImage && <img src={a.bgImage} alt="" className="absolute inset-0 w-full h-full object-cover" />}
+                <div className="absolute inset-0 bg-black/55 group-hover:bg-black/40 transition-colors" />
+                <div className="relative z-10 p-8">
                   <h3 className="text-xl font-bold">{a.title}</h3>
                   {a.achievement && <div className="mt-1 text-cyan text-sm tracking-[0.15em]">{a.achievement}</div>}
                   {a.place && <div className="text-xs text-muted-foreground tracking-[0.1em]">{a.place.toUpperCase()}</div>}
@@ -431,7 +418,14 @@ function Portfolio() {
                 <div className="relative z-10 p-8 flex flex-col justify-end h-full" style={{ minHeight: "280px" }}>
                   <div className="flex items-center justify-between mb-3">
                     <div className="text-xs text-cyan/70 tracking-widest">{p.n}</div>
-                    <div className="text-sm text-cyan font-semibold tracking-[0.15em]">{p.stats.status}</div>
+                    <div className="flex items-center gap-3">
+                      <div className="text-sm text-cyan font-semibold tracking-[0.15em]">{p.stats.status}</div>
+                      {p.links.github && p.links.github !== "#" && (
+                        <a href={p.links.github} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="w-8 h-8 flex items-center justify-center rounded-full border border-cyan/40 text-cyan hover:bg-cyan hover:text-black transition-all">
+                          <Github size={14} />
+                        </a>
+                      )}
+                    </div>
                   </div>
                   <h3 className="text-2xl font-extrabold">{p.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground max-w-2xl">{p.desc}</p>
@@ -498,36 +492,31 @@ function Portfolio() {
 
       {/* Fullscreen cert modal */}
       {fullscreenCert && (
-        <div
-          className="fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-6"
-          onClick={() => setFullscreenCert(null)}
-        >
-          <div className="relative max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
-            <button
-              className="absolute -top-4 -right-4 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-cyan text-black font-bold hover:bg-cyan/80 transition shadow-lg"
-              onClick={() => setFullscreenCert(null)}
-            >
-              <X size={18} />
-            </button>
-            <img src={fullscreenCert.certImage || ''} alt={fullscreenCert.title} className="w-full h-auto rounded-lg" />
+        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4" onClick={() => setFullscreenCert(null)}>
+          <div className="relative max-w-3xl w-full bg-slate-900 rounded-xl overflow-hidden shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <button className="absolute top-3 right-3 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-blue-500 text-white hover:bg-blue-400 transition" onClick={() => setFullscreenCert(null)}><X size={18} /></button>
+            <img src={fullscreenCert.certImage || ''} alt={fullscreenCert.title} className="w-full h-auto" />
+            <div className="p-5 bg-slate-900 border-t border-blue-900">
+              <div className="text-xs text-blue-400 font-bold tracking-widest">{fullscreenCert.issuer.toUpperCase()}</div>
+              <h3 className="mt-1 text-lg font-extrabold text-white">{fullscreenCert.title}</h3>
+              <div className="mt-1 text-sm text-blue-300">{fullscreenCert.year}</div>
+            </div>
           </div>
         </div>
       )}
 
       {/* Fullscreen achievement modal */}
       {fullscreenAchiev && (
-        <div
-          className="fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-6"
-          onClick={() => setFullscreenAchiev(null)}
-        >
-          <div className="relative max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
-            <button
-              className="absolute -top-4 -right-4 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-cyan text-black font-bold hover:bg-cyan/80 transition shadow-lg"
-              onClick={() => setFullscreenAchiev(null)}
-            >
-              <X size={18} />
-            </button>
-            <img src={fullscreenAchiev.bgImage || ''} alt={fullscreenAchiev.title} className="w-full h-auto rounded-lg" />
+        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4" onClick={() => setFullscreenAchiev(null)}>
+          <div className="relative max-w-3xl w-full bg-slate-900 rounded-xl overflow-hidden shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <button className="absolute top-3 right-3 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-blue-500 text-white hover:bg-blue-400 transition" onClick={() => setFullscreenAchiev(null)}><X size={18} /></button>
+            <img src={fullscreenAchiev.bgImage || ''} alt={fullscreenAchiev.title} className="w-full h-auto" />
+            <div className="p-5 bg-slate-900 border-t border-blue-900">
+              <h3 className="text-lg font-extrabold text-white">{fullscreenAchiev.title}</h3>
+              {fullscreenAchiev.achievement && <div className="mt-1 text-blue-400 font-bold text-sm tracking-widest">{fullscreenAchiev.achievement}</div>}
+              {fullscreenAchiev.place && <div className="mt-1 text-xs text-blue-300 tracking-widest">{fullscreenAchiev.place.toUpperCase()}</div>}
+              <p className="mt-3 text-sm text-white border-l-2 border-blue-500 pl-3">{fullscreenAchiev.desc}</p>
+            </div>
           </div>
         </div>
       )}
